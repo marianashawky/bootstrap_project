@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .divform {
+      background-color: white;
+      margin: 50px;
+      padding: 60px;
+      box-shadow: 2px 2px 2px black, -2px -2px 2px black;
+      border-radius: 5px;
+
+    }
+
+    @media  (max-width:500px) {
+      .divform  {
+                width: 350px !important;
+            }
+
+        }
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class=" container divform m-auto row  col-lg-4  col-sm-12 pt-5 mt-5">
+
+    <div id="display" class="container  mt-2 alert alert-success" role="alert" style="display:none;">
+      !Success your registar
+    </div>
+    <div id="display2" class="container  mt-2 alert alert-danger" role="alert" style="display:none;">
+      !notValid
+    </div>
+    <div class="m-auto mb-2">
+      <img src="images/logo (1).png" alt="Logo" style="width:160px;" class="rounded-pill">
+    </div>
+
+    <form class=" needs-validation " novalidate>
+      <div class=" position-relative  ">
+        <label for="validationTooltip01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class=" position-relative">
+        <label for="validationTooltip02" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="position-relative  ">
+        <label for="validationTooltipUsername" class="form-label">Username</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+          <input type="text" class="form-control" id="validationTooltipUsername"
+            aria-describedby="validationTooltipUsernamePrepend" required>
+          <div class="invalid-tooltip">
+            Please choose a unique and valid username.
+          </div>
+        </div>
+      </div>
+      <div class=" position-relative  ">
+        <label for="validationTooltip03" class="form-label">City</label>
+        <input type="text" class="form-control" id="validationTooltip03" required>
+        <div class="invalid-tooltip">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class=" position-relative  ">
+        <label for="validationTooltip04" class="form-label">State</label>
+        <select class="form-select" id="validationTooltip04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>Sohag</option>
+          <option>Giza</option>
+          <option>Qena</option>
+          <option>Embaba</option>
+
+        </select>
+        <div class="invalid-tooltip">
+          Please select a valid state.
+        </div>
+      </div>
+      <div class=" position-relative ">
+        <label for="validationTooltip05" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="validationTooltip05" required>
+        <div class="invalid-tooltip">
+          Please provide a valid zip.
+        </div>
+      </div>
+      <br>
+      <div class="col-12">
+        <button class="btn btn-info" type="submit">Submit form</button>
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+
+            if (!form.checkValidity()) {
+
+              event.preventDefault()
+              event.stopPropagation()
+              document.getElementById('display').style = 'display:none';
+              document.getElementById('display2').style = 'display:block';
+
+            } else {
+              event.preventDefault()
+              document.getElementById('display').style = 'display:block';
+              document.getElementById('display2').style = 'display:none';
+
+            }
+            form.classList.add('was-validated')
+
+
+          }, false)
+
+        })
+    })()
+  </script>
+</body>
+
+</html>
